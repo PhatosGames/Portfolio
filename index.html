@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+        <style>
+.up-START {
+        width:  800px;
+        height: 800px;
+        outline-style:initial;
+        border-radius: 400px;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-style: solid;
+        box-shadow:black;
+  border-color: black;
+  padding: 0px;
+
+      }
+      body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  background-color: #ececec;
+  background-size: 400% 400%;
+ 
+  color: white;
+}
+
+ 
+
+
+.up-down {
+        width: 200px;
+        height: 200px;
+        outline-style:initial;
+        border-radius: 100px;
+        cursor: pointer;
+        background-color: #ffffff;
+        
+        border-color: black;
+  padding: 10px;
+        border: solid;
+  
+  -webkit-transition: all 400ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 400ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 400ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 400ms ease-in;
+    transform: scale(1);   
+      }
+
+      .up-down:hover
+{
+    box-shadow: 0px 0px 150px #fff;
+    z-index: 2;
+    -webkit-transition: all 300ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 300ms ease-in;
+    -ms-transform: scale(1.5);   
+    -moz-transition: all 300ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 300ms ease-in;
+    transform: scale(1.5);
+}
+
+    
+    body{
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden; 
+  padding: 0;
+  
+
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000000; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+#viewport {
+    
+    background-attachment: fixed;
+    background-size: auto 130%;
+    background-position: center;
+  box-shadow: inset 0 0 0 1rem rgba(#2196f3, 1);
+  height: 100vh;
+  left: 0;
+  perspective: 25vh;
+  perspective-origin: 50% 50%;
+  position: fixed;
+  top: 0;
+  transition: all .4s;
+  width: 100%;
+  
+  nav {
+    background: rgba(0, 0, 0, .75);
+    display: none;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  .menu {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 2rem 0;
+    width: 100%;
+    
+    &__item {
+       
+      cursor: pointer;
+      margin: 0 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+  
+  #scrolltop {
+ 
+    
+
+    bottom: 2rem;
+    
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
+    padding: .5rem;
+    position: absolute;
+    right: 2rem;
+    text-align: center;
+    width: 50px;
+  }
+}
+
+.box {
+
+
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 100%;
+  left: 50%;
+  margin-left: -50vw;
+  margin-top: -50vh;
+  padding: 3rem;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  
+  @media screen and (min-width:600px) {
+    font-size: 2.5rem;
+  }
+  
+  @media screen and (min-width:1023px) {
+    font-size: 3rem;
+  }
+
+  &__inner {
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    
+    h1, h2, h3, h4, h5, h6 {
+      padding: 1.5rem 0; 
+       
+    }
+    
+    ul {
+      margin: 2rem auto;      
+    }
+    
+    li {
+      padding: .5rem 0; 
+    }
+    
+    span {
+       
+      font-style: italic;
+    }
+    
+    small {
+      font-size: .5rem;
+    }
+  }
+}
+.topcorner{
+    position:absolute;
+    top:10px;
+    right: 10px;
+ }
+ .center {margin:0 auto; text-align:center;}
+ .line-1{
+    
+    padding: 0px;
+    top: 50%;  
+    width: auto;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+     
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.animation_h1_first_button{
+    animation: type 1s steps(291) ;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: consolas, "Courier New", monospace;
+  color: #000000;
+
+  width: 52ch;
+}
+
+.animation_h1_first_button_pop{
+    animation: type 1s steps(20) ;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: consolas, "Courier New", monospace;
+  color: #000000;
+
+  width: 52ch;
+}
+
+
+
+
+
+h1{
+    
+}
+@keyframes type {
+  0% {
+    width: 0ch;
+  }
+  100% {
+    width: 52ch;
+  }
+}
+.card {
+
+  transition: 0.3s;
+  width: 80%;
+
+}
+.right {
+  position: absolute;
+  right: 100px;
+  width: 300px;
+ 
+  padding: 100px;
+}
+.inline{
+    display: inline;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+
+
+.cursor{
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #c6c6c6;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: #c6c6c6;
+  opacity: .1;
+  
+}
+p:hover ~ .cursor{
+  transform: translate(-50%, -50%) scale(2);
+  background-color: #c6c6c6;
+  opacity: .2;
+}
+
+.ButtonExagon:hover ~ .cursor{
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: #c6c6c6;
+  opacity: .1;
+}
+
+.content:hover ~ .cursor2{
+  opacity: 0;
+}
+.ButtonExagon {
+  position: relative; /* Necessario per posizionare l'overlay-text rispetto a questo elemento */
+  margin: 1em auto;
+  width: 8em;
+  height: 13.856em;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  background: transparent;
+  transition: opacity 0.5s, transform 0.1s;
+  background-color:rgba(255, 255, 255, 0.33)
+}
+
+.ButtonExagon:hover {
+  width: 12em;
+  height: 20.784em;
+  transform: rotate(-360deg);
+  transition: opacity 0.5s, transform 1s;
+}
+
+.ButtonExagon:before,
+.ButtonExagon:after {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: '';
+  box-shadow: inherit;
+  border: inherit;
+}
+
+.ButtonExagon:before {
+  transform: rotate(60deg);
+}
+ 
+.ButtonExagon:after {
+  transform: rotate(-60deg);
+}
+
+.overlay-text {
+  position: absolute; /* Posiziona il testo sopra al ButtonExagon */
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra orizzontalmente */
+  transform: translate(-50%, -50%); /* Allinea perfettamente al centro */
+  color: black;
+  font-size: 18px;
+  text-align: center;
+  pointer-events: none; /* Evita che il clic sul testo interferisca */
+  z-index: 10; /* Assicura che il testo sia sopra qualsiasi altro contenuto */
+}
+ 
+ 
+        </style>
+        <script>
+      function pageScroll() {
+    window.scrollBy(0,1);
+    scrolldelay = setTimeout(pageScroll,10);
+}
+         document.addEventListener('DOMContentLoaded', function (event) {
+  // Smooth Scroll function
+  function smoothScroll (element, to, duration) {
+    if (duration <= 0) return
+    var difference = to - element.scrollTop
+    var perTick = difference / duration * 10
+
+    setTimeout(function () {
+      element.scrollTop = element.scrollTop + perTick
+      if (element.scrollTop == to) return
+      smoothScroll(element, to, duration - 10)
+    }, 10)
+  }
+
+  // Scrolltop
+  function scrolltop () {
+    smoothScroll(document.body, 0, 400)
+  };
+  document.getElementById('scrolltop').addEventListener('click', scrolltop)
+
+  // Scroll to Boxes
+
+
+  // Anchors
+  var anchors = document.querySelectorAll('.menu__item')
+  var anchorId = []
+  var anchorZ = []
+  var zDistance = []
+  anchors.forEach(function (el, i) {
+    // console.log(el);
+    anchorId[i] = el.getAttribute('data-anchor')
+    anchorZ[i] = document.getElementById(anchorId[i])
+    zDistance[i] = anchorZ[i].getAttribute('data-z')
+    // console.log(parseInt(zDistance[i]));
+    el.addEventListener('click', function () {
+      scrollToAnchor(parseInt(zDistance[i]))
+    }, false)
+  })
+
+  window.addEventListener('scroll', move, false)
+
+  var scene = document.getElementsByTagName('body')[0]
+  var totHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+
+  // Distanza dei blocchi
+  var plans = document.querySelectorAll('.box')
+  var plansNum = plans.length
+  var zDepth = []
+  var boxPositions = []
+  plans.forEach(function (el, i) {
+    zDepth[i] = el.getAttribute('data-z')
+    el.style['transform'] = 'translateZ(' + zDepth[i] + 'px)'
+    boxPositions.push(-(zDepth[i]))
+  })
+  var lastBoxId = zDepth.length
+  var totDepth = parseInt(zDepth[0])
+
+  // Altezza del documento
+  var windowDepth = totDepth + totHeight
+
+  scene.style.minHeight = windowDepth + 'px'
+
+  // Posizione della Scrollbar
+  var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop
+
+  function scrollDelta () {
+    var newScrollPosition = document.documentElement.scrollTop || document.body.scrollTop
+    var delta = newScrollPosition - scrollPosition
+    scrollPosition = document.documentElement.scrollTop || document.body.scrollTop
+    return delta
+  }
+
+  function move () {
+    var boxes = document.getElementsByClassName('box')
+    var delta = scrollDelta()
+
+    for (var i = 0, numBox = boxes.length; i < numBox; i++) {
+      boxPositions[i] += parseInt(delta)
+      boxes[i].style['transform'] = 'translateZ(' + boxPositions[i] + 'px)'
+
+      if (boxPositions[i] > 0) {
+        boxes[i].style['visibility'] = 'hidden'
+      } else {
+        boxes[i].style['visibility'] = 'visible'
+      }
+    }
+  }
+})
+const context = new (window.AudioContext || window.webkitAudioContext)();
+
+  // Function to create a beep sound
+  function playBeep(frequency = 440, duration = 200) {
+    const oscillator = context.createOscillator(); // Create an oscillator
+    const gainNode = context.createGain(); // Create a gain node for volume control
+
+    oscillator.type = "sine"; // Sound wave type
+    oscillator.frequency.setValueAtTime(frequency, context.currentTime); // Frequency in Hz
+    oscillator.connect(gainNode); // Connect oscillator to gain
+    gainNode.connect(context.destination); // Connect gain to audio output
+
+    oscillator.start(); // Start sound
+    oscillator.stop(context.currentTime + duration / 1000); // Stop sound after duration
+  }
+function showTextButton_1(){
+    document.getElementById("ButtonTextOut_1").style.visibility='visible';
+    document.getElementById("Button_1").style.visibility='hidden';
+    document.getElementById("ButtonTextOut_1").className="animation_h1_first_button_pop";
+    
+}
+function showTextButton_2(){
+    document.getElementById("ButtonTextOut_2").style.visibility='visible';
+    document.getElementById("Button_2").style.visibility='hidden';
+    document.getElementById("ButtonTextOut_2").className="animation_h1_first_button_pop";
+
+}
+function showTextButton_3(){
+    document.getElementById("ButtonTextOut_3").style.visibility='visible';
+    document.getElementById("Button_3").style.visibility='hidden';
+    document.getElementById("ButtonTextOut_3").className="animation_h1_first_button_pop";
+}
+    function showTextButton_4(){
+    document.getElementById("ButtonTextOut_4").style.visibility='visible';
+    document.getElementById("Button_4").style.visibility='hidden';
+    document.getElementById("ButtonTextOut_4").className="animation_h1_first_button_pop";
+
+}
+function showTextButton_5(){
+    document.getElementById("ButtonTextOut_5").style.visibility='visible';
+    document.getElementById("Button_5").style.visibility='hidden';
+    document.getElementById("ButtonTextOut_5").className="animation_h1_first_button_pop";
+
+}
+
+
+
+        </script>
+        <script>
+          // Web Audio API for generating sound
+         
+        </script>
+    </head>
+<body >
+ 
+    <div>
+    <div id="viewport" >
+      <div class="box box-c" id="box1" data-z="5100">
+     
+        <div class="box__inner" id="ButtonTextOut_5" style="visibility: hidden;">
+          
+               
+          <div class="container" style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+            <!-- Elemento vuoto iniziale per centratura -->
+              
+          </br>
+            <div style="flex-grow: 1;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div> 
+          
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/francesco-sciacca-314589180/" target="_blank" 
+               style="text-decoration: none; margin: 0 15px;">
+              <button class="finalButton"  style="display: flex; align-items: center; justify-content: center; gap: 10px;
+                             background: linear-gradient(90deg, #0077b5, #00a0dc); 
+                             color: white; border: none; padding: 15px 25px; 
+                             border-radius: 10px; cursor: pointer; font-size: 18px; 
+                             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease-in-out;">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </button>
+            </a>
+          
+            <!-- Download CV -->
+            <a href="path-al-tuo-curriculum.pdf" download 
+               style="text-decoration: none; margin: 0 15px;">
+              <button class="finalButton"  style="display: flex; align-items: center; justify-content: center; gap: 10px;
+                             background: linear-gradient(90deg, rgba(242,5,5,1) 0%, rgba(255,141,0,1) 83%);
+                             color: white; border: none; padding: 15px 25px; 
+                             border-radius: 10px; cursor: pointer; font-size: 18px; 
+                             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease-in-out;">
+                <i class="fas fa-file-download"></i> Download CV
+              </button>
+            </a>
+          
+            <!-- Email -->
+            <button class="finalButton" onclick="window.location.href='mailto:tuo.email@example.com';" 
+                    style="display: flex; align-items: center; justify-content: center; gap: 10px;
+                          background: linear-gradient(90deg, rgba(49,130,40,1) 0%, rgba(202,255,0,1) 100%);
+                           color: white; border: none; padding: 15px 25px; 
+                           border-radius: 10px; cursor: pointer; font-size: 18px; 
+                           box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); margin: 0 15px; transition: transform 0.3s ease-in-out;">
+              <i class="fas fa-envelope"></i> Email Me
+            </button>
+          
+            <!-- Elemento vuoto finale per centratura -->
+            <div style="flex-grow: 1;"></div>
+          </div>
+          
+          <!-- CSS per effetto on hover -->
+          <style>
+            .finalButton:hover {
+              transform: scale(1.2); /* Aumenta leggermente la dimensione del pulsante */
+            }
+          </style>
+          
+          
+                 
+
+        
+        </div>
+      </div>
+
+
+      <div class="box box-d" id="" data-z="5000">
+        
+         
+         
+                <div type="button" class="ButtonExagon" id="Button_5" onclick="showTextButton_5();">  <h1 class="overlay-text">Contact me:</h1>
+                </div>
+               
+        </div>
+      <div class="box box-c" id="box1" data-z="4300">
+        <div class="box__inner">
+          <div class="topcorner">
+             <div class="right">
+              <div class="container">
+                <h1 id="ButtonTextOut_4" style="visibility: hidden; text-align: right; position: absolute; right: 20%; top: 20%;">
+                  <b style="color: black;">EXPERTISE IN </b>
+                  <p style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+                            -webkit-background-clip: text; 
+                            -webkit-text-fill-color: transparent;">
+                    AI Local Models (e.g., Ollama)
+                  </p>
+                  <p style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+                            -webkit-background-clip: text; 
+                            -webkit-text-fill-color: transparent;">
+                    Leadership & Team Management
+                  </p>
+                  <p style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+                            -webkit-background-clip: text; 
+                            -webkit-text-fill-color: transparent;">
+                    Project & Vendor Coordination
+                  </p>
+                  <p style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+                            -webkit-background-clip: text; 
+                            -webkit-text-fill-color: transparent;">
+                    Strategic Problem Solving
+                  </p>
+                  <p style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+                            -webkit-background-clip: text; 
+                            -webkit-text-fill-color: transparent;">
+                    Process Optimization & Automation
+                  </p>
+                </h1>
+                
+                
+
+              </div>
+             </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="box box-d" id="" data-z="4000">
+        
+         
+         
+                <div type="button" class="ButtonExagon" id="Button_4" onclick="showTextButton_4();">  <h1 class="overlay-text">And also..</h1>
+                </div>
+               
+        </div>
+      <div class="box box-c" id="box1" data-z="3300">
+        <div class="box__inner">
+          <div class="topcorner">
+ 
+              <div class="container">
+                <h1 id="ButtonTextOut_3" style="visibility: hidden;  ">
+                  <b style="background: linear-gradient(90deg, rgba(111, 0, 255, 1) 0%, rgba(153, 51, 255, 1) 100%);
+                            -webkit-background-clip: text; 
+                            -webkit-text-fill-color: transparent;">
+                    Strong knowledge of
+                  </b>
+                  <p>C#, .NET, SQL Server, Power Suite</p>
+                  <p>(Power Automate, Power Apps, Power BI)</p>
+                  <p>with a solid foundation in</p>
+                  <p>productivity tools like Excel and Word (docx) etc</p>
+                </h1>
+                
+
+              </div>
+           
+          </div>
+        </div>
+      </div>
+
+
+      <div class="box box-d" id="" data-z="3000">
+        
+         
+         
+                <div type="button" class="ButtonExagon" id="Button_3" onclick="showTextButton_3();">  <h1 class="overlay-text">FRAMEWORK I USE...</h1>
+                </div>
+               
+        </div>
+
+
+        <div class="box box-c" id="box1" data-z="2300">
+          <div class="box__inner">
+            <div class="topcorner">
+               <div class="right">
+                <div class="container">
+                  <h1 id="ButtonTextOut_2" style="visibility: hidden; text-align: right; position: absolute; right: 20%; top: 20%;">
+                    <b style="color: black;">SPECIALIZED IN</b>
+                    <p style="background: linear-gradient(90deg, rgba(4,36,0,1) 0%, rgba(28,121,9,1) 35%, rgba(125,255,0,1) 100%);
+                              -webkit-background-clip: text;
+                              -webkit-text-fill-color: transparent;">
+                      high performance computing (HPC)
+                    </p>
+                    <p style="background: linear-gradient(90deg, rgba(4,36,0,1) 0%, rgba(28,121,9,1) 35%, rgba(125,255,0,1) 100%);
+                              -webkit-background-clip: text;
+                              -webkit-text-fill-color: transparent;">
+                      and high availability (HA)
+                    </p>
+                    <p style="background: linear-gradient(90deg, rgba(4,36,0,1) 0%, rgba(28,121,9,1) 35%, rgba(125,255,0,1) 100%);
+                              -webkit-background-clip: text;
+                              -webkit-text-fill-color: transparent;">
+                      Programs
+                    </p>
+                  </h1>
+                  
+
+                </div>
+               </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="box box-d" id="" data-z="2000">
+          
+           
+           
+                  <div type="button" class="ButtonExagon" id="Button_2" onclick="showTextButton_2();">  <h1 class="overlay-text">TELL ME MORE...</h1>
+                  </div>
+                 
+          </div>
+          <div class="box box-c"  id="" data-z="1300">
+            <div class="box__inner">
+              
+              <div class="card">
+                <div class="container">
+                  <h1 id="ButtonTextOut_1" style="visibility: hidden;">
+                    <b style="color: black;">FRANCESCO SCIACCA</b><p style="color: #f58f00;">FULL STACK DEVELOPER</p> </h1> 
+          
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box box-c"  id="" data-z="1000">
+         
+           
+                <div class="ButtonExagon" id="Button_1" onclick="showTextButton_1();">
+                  <h1 class="overlay-text">WHO I AM</h1>
+                </div>
+               
+            
+            </div>
+        </div>
+        </div>
+       
+
+       
+
+        <div class="box box-d" id="" data-z="0">
+            
+            <div class="center">
+                <div class="box__inner">
+                 
+                  <br/>
+    
+                      <button class="up-START">
+                        <h1 class="animation_h1_first_button">
+                       Francesco Sciacca<br/>
+                        &nbsp; &nbsp;<br/>
+                                Software FullStack BE developer<br/>
+                            &nbsp;   <br/>
+                            <br/>
+                             Portfolio Website<br/>
+                          <br/>
+                          PLEASE BEGIN SCROLL..
+                      </h1>
+                    </button>
+                    </div>
+                </div>
+          </div> 
+        <div id="scrolltop" ></div>
+      
+      </div>
+      
+      <div class="cursor"></div>
+    <div class="cursor2"></div>
+    </div>
+    <script>
+      var cursor = document.querySelector(".cursor");
+      var cursor2 = document.querySelector(".cursor2");
+      document.addEventListener("mousemove",function(e){
+        cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+      });
+    </script>
+</body>
+</html>
